@@ -48,7 +48,6 @@ RUN apk add --no-cache git tzdata && \
         lua5.2-dev \
         mosquitto-dev \
         libusb-compat-dev \
-        python3-dev \
         eudev-dev \
         coreutils
 
