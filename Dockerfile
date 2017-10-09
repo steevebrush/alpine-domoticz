@@ -25,6 +25,7 @@ RUN set -x && \
     make && \
     make install && \
     apk del $buildDeps && \
+    cp -r /src/domoticz/dzVents /opt/domoticz/ && \
     rm -rf /src
 
 VOLUME /config
