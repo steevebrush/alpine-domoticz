@@ -1,7 +1,7 @@
 # alpine-domoticz
 
 ## Domoticz docker container
-This container is based on latest [alpine linux][1] (3.6), latest [domoticz][2] commit, latest [openzwave][3] commit and I add the [broadlink python lib][6]for my new MP1 (should work also with others broadlink devices).
+This container is based on latest [alpine linux][1] (3.6), latest [domoticz][2] commit, latest [openzwave][3] commit and I add the [broadlink python lib][6] for my new MP1 (should work also with others broadlink devices).
 This container is size optimized : 128MB 
 
 You can refer to the automatic build at [docker hub][4] too.
