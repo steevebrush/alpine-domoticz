@@ -16,13 +16,13 @@ RUN set -x && \
     sed -i -e "s/sys\/poll.h/poll.h/g" /usr/include/boost/asio/detail/socket_types.hpp && \
     sed -i -e "s/pycrypto==2.6.1/pycryptodome==3.4.7/g" /src/python-broadlink/setup.py && \
     cd /src/open-zwave && \
-    make -j"$(nproc)" && \
+    make && \
     ln -s /src/open-zwave /src/open-zwave-read-only && \
     cd /src/python-broadlink && \
 	python3 setup.py install && \
 	cd /src/domoticz && \
     cmake -DCMAKE_BUILD_TYPE=Release -Wno-dev -DHAVE_EXECINFO_H=0 . && \
-    make -j"$(nproc)" && \
+    make && \
     make install && \
     apk del $buildDeps && \
     rm -rf /src
