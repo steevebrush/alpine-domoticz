@@ -1,10 +1,14 @@
 FROM alpine:latest
 LABEL maintainer="stéphane BROSSE <stevebrush@gmail.com>"
 
+ENV TIMEZONE Europe/Paris
+
 RUN set -x && \
 	buildDeps='build-base cmake git libressl-dev libexecinfo-dev boost-dev zlib-dev curl-dev libusb-compat-dev eudev-dev coreutils linux-headers gmp-dev' && \
 	apk add --no-cache $buildDeps && \
-	apk add --no-cache libssl1.0 python3 python3-dev boost-thread boost-system boost-date_time zlib curl libcurl libusb libusb-compat udev gmp && \
+	apk add --no-cache libssl1.0 python3 python3-dev boost-thread boost-system boost-date_time zlib curl libcurl libusb libusb-compat udev gmp tzdata && \
+    cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
+    echo "${TIMEZONE}" > /etc/TZ &&\
 	git clone --depth 2 https://github.com/domoticz/domoticz.git /src/domoticz && \
 	cd /src/domoticz && \
 	git fetch --unshallow && \
